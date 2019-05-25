@@ -23,7 +23,7 @@ function App() {
 
 
   function getNames() {
-    axios.get('http://localhost:5000/names')
+    axios.get('https://echo-name-randomizer.herokuapp.com/names')
       .then(res => {
         const names = res.data
         setNames(names);
@@ -34,7 +34,7 @@ function App() {
   }
 
   function remove(id) {
-    axios.delete(`http://localhost:5000/names/${id}`)
+    axios.delete(`https://echo-name-randomizer.herokuapp.com/names/${id}`)
       .then(res => {
         setNames(names.filter(name => name.id !== id))
       })
@@ -48,7 +48,7 @@ function App() {
     const name = {
       name: nameRef.current.value
     }
-    axios.post('http://localhost:5000/names', name)
+    axios.post('https://echo-name-randomizer.herokuapp.com/names', name)
       .then(res => {
         getNames();
       })
